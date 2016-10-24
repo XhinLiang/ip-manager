@@ -54,6 +54,7 @@ ip-manager list
 ```
 git clone https://github.com/XhinLiang/ip-manager.git
 cd ip-manager
+npm install
 typings install
 tsc
 ```

@@ -57,6 +57,13 @@ function addHost(domain: string, newIp: string, active: boolean): void {
  * @return {string}        完整 IP
  */
 function findIp(ipTemp: string): string {
+    // 先精确匹配一次
+    for (let i = 0; i < ips.length; ++i) {
+        let item: string = ips[i];
+        if (item == ipTemp) {
+            return item;
+        }
+    }
     for (let i = 0; i < ips.length; ++i) {
         let item: string = ips[i];
         let splitArray = item.split('.');
@@ -69,6 +76,14 @@ function findIp(ipTemp: string): string {
 }
 
 function findDomain(domainTemp: string): string[] {
+    // 先精确匹配一次
+    for (let i = 0; i < domains.length; ++i) {
+        let item: string = domains[i];
+        if (item == domainTemp) {
+            return [item];
+        }
+    }
+    // 精确匹配没找到，模糊匹配
     let result: string[] = [];
     for (let i = 0; i < domains.length; ++i) {
         let item: string = domains[i];

@@ -32,6 +32,32 @@ export function validateIp(str: string) {
     return false;
 }
 
+export function init(): Q.IPromise<boolean> {
+    let promise: Q.IPromise<boolean> = Q.Promise<boolean>((resolve: Function, reject: Function) => {
+        fs.readFile(getHostsFilePath(), 'utf8', function(err: Error, data: string) {
+            if (err) {
+                return console.log(err);
+            }
+            let startIndex = data.indexOf(FLAG_START);
+            let endIndex = data.indexOf(FLAG_END);
+            if (startIndex > -1 && endIndex > -1) {
+                resolve(true);
+                return;
+            }
+            let content = data + getNewContent();
+            fs.writeFile(getHostsFilePath(), content, 'utf8', function(err) {
+                if (err) {
+                    reject();
+                    return console.log(err);
+                }
+                resolve(false);
+            });
+            return;
+        });
+    });
+    return promise;
+}
+
 export function flush(): void {
     fs.readFile(getHostsFilePath(), 'utf8', function(err: Error, data: string) {
         if (err) {

@@ -1,33 +1,3 @@
-## ip-manager
-> manage your hosts file, just right now!
-
-### install
-```
-sudo npm install ip-manager -g
-```
-
-### commands
-
-#### add a hosts line
-```
-ip-manager add home.xhinliang.com 115.159.85.182
-```
-
-#### show the list of hosts
-```
-ip-manager add home.xhinliang.com 115.159.85.182
-```
-
-### build
-```
-git clone https://github.com/XhinLiang/ip-manager.git
-cd ip-manager
-typings install
-tsc
-```
-
-### license
-```
 MIT License
 
 Copyright (c) 2016 Xhin Liang
@@ -49,4 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-```

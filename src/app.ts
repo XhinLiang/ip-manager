@@ -64,14 +64,35 @@ function status(params: string[]): void {
     }
 }
 
+function init(params: string[]): void {
+    if (params.length != 0) {
+        console.log('Your command params is no suit for action-add');
+        return commander.outputHelp();
+    }
+    Tools
+        .init()
+        .then(
+        hasInit => {
+            if (!hasInit){
+                console.log(colors.green('hosts file init success!'))
+                return;
+            }
+            console.log(colors.green('hosts file already has been inited!'))
+        },
+        err => {
+            console.log(colors.red(err.toString()) + ' ,hosts file init error')
+        });
+}
+
 function list(params: string[]): void {
     if (params.length != 0) {
         console.log('Your command params is no suit for action-add');
         return commander.outputHelp();
     }
     let hostslist: Host[] = getHosts();
-    let ho: Host = hostslist[0];
-
+    if (hostslist.length == 0) {
+        console.log(colors.yellow('ip-manager hold no hosts yet'));
+    }
     hostslist.forEach(function(item: Host) {
         process.stdout.write(`${item.domain}: `);
         for (let i = 0; i < item.ips.length; ++i) {
@@ -97,7 +118,8 @@ function start() {
         .option('-a --add <domain> <ip>', 'add a host', add)
         .option('-e --enable <domain> <ip>', 'enable an ip for a domain', enable)
         .option('-e --disable <domain>', 'disable all hosts of a domain', disable)
-        .option('-l --list <param>', 'list all hosts', list)
+        .option('-l --list', 'list all hosts', list)
+        .option('-i --init', 'init hosts file', init)
         .option('-s --status <param>', 'check the status of a domain', status)
         .parse(process.argv);
     if (!process.argv.slice(2).length) {

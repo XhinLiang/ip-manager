@@ -1,84 +1,115 @@
 0 info it worked if it ends with ok
 1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
-1 verbose cli   'C:\\Users\\xhinliang\\AppData\\Roaming\\npm\\node_modules\\@tencent\\tnpm\\node_modules\\npm\\bin\\npm-cli.js',
-1 verbose cli   '--no-shrinkwrap',
-1 verbose cli   '--proxy=http://r.tnpm.oa.com:80',
-1 verbose cli   '--userconfig=C:\\Users\\xhinliang\\.tnpmrc',
-1 verbose cli   '--disturl=http://tnpm.oa.com/mirrors/node',
-1 verbose cli   '--cache=C:\\Users\\xhinliang\\.tnpm',
-1 verbose cli   '--registry=http://r.tnpm.oa.com',
-1 verbose cli   '--node-gyp=C:\\Users\\xhinliang\\AppData\\Roaming\\npm\\node_modules\\@tencent\\tnpm\\node_modules\\node-gyp\\bin\\node-gyp.js',
-1 verbose cli   'install',
-1 verbose cli   'ic-client',
-1 verbose cli   '-g' ]
-2 info using npm@3.8.9
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'publish' ]
+2 info using npm@2.15.1
 3 info using node@v4.4.4
-4 silly loadCurrentTree Starting
-5 silly install loadCurrentTree
-6 silly install readGlobalPackageData
-7 silly fetchPackageMetaData ic-client
-8 silly fetchNamedPackageData ic-client
-9 silly mapToRegistry name ic-client
-10 silly mapToRegistry using default registry
-11 silly mapToRegistry registry http://r.tnpm.oa.com/
-12 silly mapToRegistry data Result {
-12 silly mapToRegistry   raw: 'ic-client',
-12 silly mapToRegistry   scope: null,
-12 silly mapToRegistry   name: 'ic-client',
-12 silly mapToRegistry   rawSpec: '',
-12 silly mapToRegistry   spec: 'latest',
-12 silly mapToRegistry   type: 'tag' }
-13 silly mapToRegistry uri http://r.tnpm.oa.com/ic-client
-14 verbose request uri http://r.tnpm.oa.com/ic-client
-15 verbose request no auth needed
-16 info attempt registry request try #1 at 14:36:30
-17 verbose request id 8071636ce9b01de3
-18 http request GET http://r.tnpm.oa.com/ic-client
-19 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
-20 info attempt registry request try #2 at 14:36:40
-21 http request GET http://r.tnpm.oa.com/ic-client
-22 info retry will retry, error on last attempt: Error: tunneling socket could not be established, cause=Parse Error
-23 info attempt registry request try #3 at 14:37:41
-24 http request GET http://r.tnpm.oa.com/ic-client
-25 silly fetchPackageMetaData Error: tunneling socket could not be established, cause=Parse Error
-25 silly fetchPackageMetaData     at ClientRequest.onError (C:\Users\xhinliang\AppData\Roaming\npm\node_modules\@tencent\tnpm\node_modules\npm\node_modules\request\node_modules\tunnel-agent\index.js:176:17)
-25 silly fetchPackageMetaData     at ClientRequest.g (events.js:260:16)
-25 silly fetchPackageMetaData     at emitOne (events.js:77:13)
-25 silly fetchPackageMetaData     at ClientRequest.emit (events.js:169:7)
-25 silly fetchPackageMetaData     at Socket.socketOnData (_http_client.js:314:9)
-25 silly fetchPackageMetaData     at emitOne (events.js:77:13)
-25 silly fetchPackageMetaData     at Socket.emit (events.js:169:7)
-25 silly fetchPackageMetaData     at readableAddChunk (_stream_readable.js:153:18)
-25 silly fetchPackageMetaData     at Socket.Readable.push (_stream_readable.js:111:10)
-25 silly fetchPackageMetaData     at TCP.onread (net.js:531:20)
-25 silly fetchPackageMetaData  error for ic-client { [Error: tunneling socket could not be established, cause=Parse Error] code: 'ECONNRESET' }
-26 silly rollbackFailedOptional Starting
-27 silly rollbackFailedOptional Finishing
-28 silly runTopLevelLifecycles Starting
-29 silly runTopLevelLifecycles Finishing
-30 silly install printInstalled
-31 verbose stack Error: tunneling socket could not be established, cause=Parse Error
-31 verbose stack     at ClientRequest.onError (C:\Users\xhinliang\AppData\Roaming\npm\node_modules\@tencent\tnpm\node_modules\npm\node_modules\request\node_modules\tunnel-agent\index.js:176:17)
-31 verbose stack     at ClientRequest.g (events.js:260:16)
-31 verbose stack     at emitOne (events.js:77:13)
-31 verbose stack     at ClientRequest.emit (events.js:169:7)
-31 verbose stack     at Socket.socketOnData (_http_client.js:314:9)
-31 verbose stack     at emitOne (events.js:77:13)
-31 verbose stack     at Socket.emit (events.js:169:7)
-31 verbose stack     at readableAddChunk (_stream_readable.js:153:18)
-31 verbose stack     at Socket.Readable.push (_stream_readable.js:111:10)
-31 verbose stack     at TCP.onread (net.js:531:20)
-32 verbose cwd C:\code\ip-manager\ip-manager
-33 error Windows_NT 6.1.7601
-34 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Users\\xhinliang\\AppData\\Roaming\\npm\\node_modules\\@tencent\\tnpm\\node_modules\\npm\\bin\\npm-cli.js" "--no-shrinkwrap" "--proxy=http://r.tnpm.oa.com:80" "--userconfig=C:\\Users\\xhinliang\\.tnpmrc" "--disturl=http://tnpm.oa.com/mirrors/node" "--cache=C:\\Users\\xhinliang\\.tnpm" "--registry=http://r.tnpm.oa.com" "--node-gyp=C:\\Users\\xhinliang\\AppData\\Roaming\\npm\\node_modules\\@tencent\\tnpm\\node_modules\\node-gyp\\bin\\node-gyp.js" "install" "ic-client" "-g"
-35 error node v4.4.4
-36 error npm  v3.8.9
-37 error code ECONNRESET
-38 error network tunneling socket could not be established, cause=Parse Error
-39 error network This is most likely not a problem with npm itself
-39 error network and is related to network connectivity.
-39 error network In most cases you are behind a proxy or have bad network settings.
-39 error network
-39 error network If you are behind a proxy, please make sure that the
-39 error network 'proxy' config is set properly.  See: 'npm help config'
-40 verbose exit [ 1, true ]
+4 verbose publish [ '.' ]
+5 silly cache add args [ '.', null ]
+6 verbose cache add spec .
+7 silly cache add parsed spec Result {
+7 silly cache add   raw: '.',
+7 silly cache add   scope: null,
+7 silly cache add   name: null,
+7 silly cache add   rawSpec: '.',
+7 silly cache add   spec: 'C:\\code\\ip-manager\\ip-manager',
+7 silly cache add   type: 'directory' }
+8 verbose addLocalDirectory C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package.tgz not in flight; packing
+9 verbose correctMkdir C:\Users\xhinliang\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+10 verbose tar pack [ 'C:\\Users\\xhinliang\\AppData\\Roaming\\npm-cache\\ip-manager\\0.1.1\\package.tgz',
+10 verbose tar pack   'C:\\code\\ip-manager\\ip-manager' ]
+11 verbose tarball C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package.tgz
+12 verbose folder C:\code\ip-manager\ip-manager
+13 info prepublish ip-manager@0.1.1
+14 verbose addLocalTarball adding from inside cache C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package.tgz
+15 verbose correctMkdir C:\Users\xhinliang\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+16 silly cache afterAdd ip-manager@0.1.1
+17 verbose afterAdd C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package\package.json not in flight; writing
+18 verbose correctMkdir C:\Users\xhinliang\AppData\Roaming\npm-cache correctMkdir not in flight; initializing
+19 verbose afterAdd C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package\package.json written
+20 silly publish { name: 'ip-manager',
+20 silly publish   version: '0.1.1',
+20 silly publish   description: 'manage your hosts',
+20 silly publish   repository:
+20 silly publish    { type: 'git',
+20 silly publish      url: 'git+ssh://git@github.com/XhinLiang/ip-manager.git',
+20 silly publish      web: 'https://github.com/XhinLiang/ip-manager.git' },
+20 silly publish   main: './bin/ip-manager',
+20 silly publish   bin: { 'ip-manager': './bin/ip-manager' },
+20 silly publish   keywords: [ 'ip' ],
+20 silly publish   author: { name: 'xhinliang' },
+20 silly publish   contributors: [ { name: 'xhinliang', email: 'xhinliang@tencent.com', url: '梁栩华' } ],
+20 silly publish   license: 'MIT',
+20 silly publish   dependencies:
+20 silly publish    { colors: '^1.1.2',
+20 silly publish      commander: '^2.9.0',
+20 silly publish      'line-reader': '^0.4.0',
+20 silly publish      q: '^1.4.1',
+20 silly publish      request: '^2.75.0' },
+20 silly publish   readme: '### ip-manager\n',
+20 silly publish   readmeFilename: 'README.md',
+20 silly publish   gitHead: 'a4cf6ce472df3138f591632a4c58974afffbadc3',
+20 silly publish   bugs: { url: 'https://github.com/XhinLiang/ip-manager/issues' },
+20 silly publish   homepage: 'https://github.com/XhinLiang/ip-manager#readme',
+20 silly publish   _id: 'ip-manager@0.1.1',
+20 silly publish   scripts: {},
+20 silly publish   _shasum: '276a08617d0911a993695f3ce62d5ad34e2b1fa6',
+20 silly publish   _from: '.' }
+21 verbose getPublishConfig undefined
+22 silly mapToRegistry name ip-manager
+23 silly mapToRegistry using default registry
+24 silly mapToRegistry registry https://registry.npmjs.org/
+25 silly mapToRegistry data Result {
+25 silly mapToRegistry   raw: 'ip-manager',
+25 silly mapToRegistry   scope: null,
+25 silly mapToRegistry   name: 'ip-manager',
+25 silly mapToRegistry   rawSpec: '',
+25 silly mapToRegistry   spec: 'latest',
+25 silly mapToRegistry   type: 'tag' }
+26 silly mapToRegistry uri https://registry.npmjs.org/ip-manager
+27 verbose publish registryBase https://registry.npmjs.org/
+28 silly publish uploading C:\Users\xhinliang\AppData\Roaming\npm-cache\ip-manager\0.1.1\package.tgz
+29 verbose request uri https://registry.npmjs.org/ip-manager
+30 verbose request sending authorization for write operation
+31 info attempt registry request try #1 at 17:35:27
+32 verbose request using bearer token for auth
+33 verbose request id 5f57279a9f7e6b5d
+34 http request PUT https://registry.npmjs.org/ip-manager
+35 http 403 https://registry.npmjs.org/ip-manager
+36 verbose headers { 'content-type': 'application/json',
+36 verbose headers   'cache-control': 'max-age=300',
+36 verbose headers   'content-length': '95',
+36 verbose headers   'accept-ranges': 'bytes',
+36 verbose headers   date: 'Mon, 24 Oct 2016 09:35:30 GMT',
+36 verbose headers   via: '1.1 varnish',
+36 verbose headers   connection: 'keep-alive',
+36 verbose headers   'x-served-by': 'cache-itm7421-ITM',
+36 verbose headers   'x-cache': 'MISS',
+36 verbose headers   'x-cache-hits': '0',
+36 verbose headers   'x-timer': 'S1477301729.198166,VS0,VE827',
+36 verbose headers   vary: 'Accept-Encoding' }
+37 verbose request invalidating C:\Users\xhinliang\AppData\Roaming\npm-cache\registry.npmjs.org\ip-manager on PUT
+38 error publish Failed PUT 403
+39 verbose stack Error: "You cannot publish over the previously published version 0.1.1." : ip-manager
+39 verbose stack     at makeError (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:264:12)
+39 verbose stack     at CachingRegistryClient.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:252:14)
+39 verbose stack     at Request._callback (C:\Program Files\nodejs\node_modules\npm\node_modules\npm-registry-client\lib\request.js:172:14)
+39 verbose stack     at Request.self.callback (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:199:22)
+39 verbose stack     at emitTwo (events.js:87:13)
+39 verbose stack     at Request.emit (events.js:172:7)
+39 verbose stack     at Request.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:1036:10)
+39 verbose stack     at emitOne (events.js:82:20)
+39 verbose stack     at Request.emit (events.js:169:7)
+39 verbose stack     at IncomingMessage.<anonymous> (C:\Program Files\nodejs\node_modules\npm\node_modules\request\request.js:963:12)
+40 verbose statusCode 403
+41 verbose pkgid ip-manager
+42 verbose cwd C:\code\ip-manager\ip-manager
+43 error Windows_NT 6.1.7601
+44 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "publish"
+45 error node v4.4.4
+46 error npm  v2.15.1
+47 error code E403
+48 error "You cannot publish over the previously published version 0.1.1." : ip-manager
+49 error If you need help, you may report this error at:
+49 error     <https://github.com/npm/npm/issues>
+50 verbose exit [ 1, true ]

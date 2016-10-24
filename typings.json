@@ -1,0 +1,12 @@
+{
+  "name": "ic-client",
+  "dependencies": {
+    "request": "registry:npm/request#2.69.0+20160428223725"
+  },
+  "globalDependencies": {
+    "colors": "registry:dt/colors#0.6.0-1+20160501135139",
+    "commander": "registry:dt/commander#2.3.0+20160317120654",
+    "node": "registry:dt/node#6.0.0+20160720070758",
+    "q": "registry:dt/q#0.0.0+20160613154756"
+  }
+}

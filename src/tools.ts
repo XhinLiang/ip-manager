@@ -84,7 +84,7 @@ function getNewContent(): string {
         for (let j = 0; j < host.ips.length; ++j) {
             let ip: Ip = host.ips[j];
             if (ip.active) {
-                content += `${LINE_SEPERATOR}{ip.ip} ${host.domain} ${FLAG}`;
+                content += `${LINE_SEPERATOR}${ip.ip} ${host.domain} ${FLAG}`;
                 continue;
             }
             content += `${LINE_SEPERATOR}#${ip.ip} ${host.domain} ${FLAG}`;

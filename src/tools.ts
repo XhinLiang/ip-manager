@@ -9,6 +9,7 @@ import {Host, Ip, addHost, getHosts, find} from './hosts';
 const FLAG = '#ip-manager';
 const FLAG_END = '#ip-manager-end';
 const FLAG_START = '#ip-manager-start';
+const LINE_SEPERATOR = isPosix() ? '\n' : '\r\n';
 
 export function isPosix(): boolean {
     let platform: string = os.platform();
@@ -77,19 +78,19 @@ export function flush(): void {
 
 function getNewContent(): string {
     let hostslist = getHosts();
-    let content: string = '\n' + FLAG_START;
+    let content: string = LINE_SEPERATOR + FLAG_START;
     for (let i = 0; i < hostslist.length; ++i) {
         let host = hostslist[i];
         for (let j = 0; j < host.ips.length; ++j) {
             let ip: Ip = host.ips[j];
             if (ip.active) {
-                content += `\n${ip.ip} ${host.domain} ${FLAG}`;
+                content += `${LINE_SEPERATOR}{ip.ip} ${host.domain} ${FLAG}`;
                 continue;
             }
-            content += `\n#${ip.ip} ${host.domain} ${FLAG}`;
+            content += `${LINE_SEPERATOR}#${ip.ip} ${host.domain} ${FLAG}`;
         }
     }
-    return content + '\n' + FLAG_END;
+    return content + LINE_SEPERATOR + FLAG_END;
 }
 
 export function readHostFile(): Q.IPromise<String> {

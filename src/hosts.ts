@@ -1,6 +1,6 @@
-var hosts: Host[] = [];
-var domains: string[] = [];
-var ips: string[] = [];
+let hosts: Host[] = [];
+let domains: string[] = [];
+let ips: string[] = [];
 
 interface Ip {
     ip: string;
@@ -51,6 +51,11 @@ function addHost(domain: string, newIp: string, active: boolean): void {
     ips.push(newIp);
 }
 
+/**
+ * 根据 IP 简写查找指定的 IP
+ * @param  {string} ipTemp IP 简写
+ * @return {string}        完整 IP
+ */
 function findIp(ipTemp: string): string {
     for (let i = 0; i < ips.length; ++i) {
         let item: string = ips[i];

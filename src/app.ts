@@ -1,8 +1,8 @@
 import * as commander from 'commander';
 import * as colors from 'colors';
 import * as fs from 'fs';
-import * as os from 'os';
 import * as Tools from './tools';
+import * as Q from 'q';
 
 import {Host, disableHost, enableHost, Ip, addHost, getHosts, find} from './hosts';
 const conf = require('../package.json');
@@ -87,7 +87,9 @@ function list(params: string[]): void {
 }
 
 // 读取 hosts 完毕之后在开始启动主界面
-Tools.readHostFile(() => start());
+Tools.readHostFile()
+    .then(() => start(), err => console.log(err));
+
 
 function start() {
     commander

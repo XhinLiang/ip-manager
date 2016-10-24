@@ -6,19 +6,51 @@
 sudo npm install ip-manager -g
 ```
 
-### commands
+### examples
+
+#### init
+```
+ip-manager init
+```
+**ip-manager will not manage your old hosts**
+
+*If you want ip-manager manage your old hosts,
+ you can put your old hosts between the '#ip-manager-start' and '#ip-manager-end',
+ and then add '#ip-manager' at the end of each line.*
 
 #### add a hosts line
 ```
+ip-manager add home.xhinliang.com 115.19.85.18
 ip-manager add home.xhinliang.com 115.159.85.182
+ip-manager add resume.xhinliang.com 115.159.85.12
 ```
 
 #### show the list of hosts
 ```
-ip-manager add home.xhinliang.com 115.159.85.182
+ip-manager list
+```
+
+#### enable an ip to a domain
+```
+ip-manager enable resume 182
+ip-manager enable home 18
+ip-manager enable list
+```
+
+#### search and check status
+```
+ip-manager status home
+```
+
+#### disable all ip to a domain
+```
+ip-manager diable home
+ip-manager list
 ```
 
 ### build
+> ip-manager is writen by TypeScript, so you should install `typings` and `TypeScript` if you want to build it.
+
 ```
 git clone https://github.com/XhinLiang/ip-manager.git
 cd ip-manager

@@ -3,7 +3,6 @@ import * as colors from 'colors';
 import * as fs from 'fs';
 import * as os from 'os';
 import * as Readline from 'readline';
-import * as Q from 'q';
 import {Host, Ip, addHost, getHosts, find} from './hosts';
 
 const FLAG = '#ip-manager';
@@ -33,8 +32,8 @@ export function validateIp(str: string) {
     return false;
 }
 
-export function init(): Q.IPromise<boolean> {
-    let promise: Q.IPromise<boolean> = Q.Promise<boolean>((resolve: Function, reject: Function) => {
+export function init(): Promise<boolean> {
+    let promise: Promise<boolean> = new Promise<boolean>((resolve: Function, reject: Function) => {
         fs.readFile(getHostsFilePath(), 'utf8', function(err: Error, data: string) {
             if (err) {
                 return console.log(err);
@@ -93,8 +92,8 @@ function getNewContent(): string {
     return content + LINE_SEPERATOR + FLAG_END;
 }
 
-export function readHostFile(): Q.IPromise<String> {
-    let promise: Q.IPromise<String> = Q.Promise<String>((resolve: Function, reject: Function) => {
+export function readHostFile(): Promise<String> {
+    let promise: Promise<String> = new Promise<String>((resolve: Function, reject: Function) => {
         let rl = Readline.createInterface({
             input: fs.createReadStream(getHostsFilePath(), { flags: 'r+' })
         });

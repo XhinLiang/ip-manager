@@ -7,39 +7,47 @@ import {Host, disableHost, enableHost, Ip, addHost, getHosts, find} from './host
 const conf = require('../package.json');
 
 function add(): void {
-    log(process.argv);
-    return;
-    //addHost(domain, ip, true);
-    //Tools.flush();
-}
-
-function enable(params: string[]): void {
-    if (params.length != 2) {
-        console.log('Your command params is no suit for action-add');
+    let args = process.argv;
+    if (args.length != 5) {
+        console.log('\nYour command params is no suit for action-add'.red);
         return commander.outputHelp();
     }
-    let domain: string = params[0];
-    let ip: string = params[1];
-    let t = enableHost(domain, ip);
+    let ip: string = args.pop();
+    let domain: string = args.pop();
+    addHost(domain, ip, true);
+    Tools.flush();
+}
+
+function enable(): void {
+    let args = process.argv;
+    if (args.length != 5) {
+        console.log('\nYour command params is no suit for action-enable'.red);
+        return commander.outputHelp();
+    }
+    let ip: string = args.pop();
+    let domain: string = args.pop();
+    let result: boolean = enableHost(domain, ip);
     Tools.flush();
 }
 
 function disable(params: string[]): void {
-    if (params.length != 1) {
-        console.log('Your command params is no suit for action-add');
+    let args = process.argv;
+    if (args.length != 4) {
+        console.log('\nYour command params is no suit for action-disable'.red);
         return commander.outputHelp();
     }
-    let domain: string = params[0];
-    let t = disableHost(domain);
+    let domain: string = args.pop();
+    let result: boolean = disableHost(domain);
     Tools.flush();
 }
 
-function status(params: string[]): void {
-    if (params.length != 1) {
-        console.log('Your command params is no suit for action-add');
+function status(): void {
+    let args = process.argv;
+    if (args.length != 4) {
+        console.log('\nYour command params is no suit for action-status'.red);
         return commander.outputHelp();
     }
-    let targetDomain = params[0];
+    let targetDomain = args.pop();
     let hostsArray: Host[] = find(targetDomain);
     if (hostsArray.length == 0) {
         console.log('not found.');
@@ -59,9 +67,10 @@ function status(params: string[]): void {
     }
 }
 
-function init(params: string[]): void {
-    if (params.length != 0) {
-        console.log('Your command params is no suit for action-add');
+function init(): void {
+    let args = process.argv;
+    if (args.length != 3) {
+        console.log('\nYour command params is no suit for action-init'.red);
         return commander.outputHelp();
     }
     Tools
@@ -76,9 +85,10 @@ function init(params: string[]): void {
         .catch(err => console.log(colors.red(err.toString()) + ' ,hosts file init error'));
 }
 
-function list(params: string[]): void {
-    if (params.length != 0) {
-        console.log('Your command params is no suit for action-add');
+function list(): void {
+    let args = process.argv;
+    if (args.length != 3) {
+        console.log('\nYour command params is no suit for action-list'.red);
         return commander.outputHelp();
     }
     let hostslist: Host[] = getHosts();
@@ -104,11 +114,6 @@ Tools.readHostFile()
     .then(() => start())
     .catch(err => console.log(err));
 
-
-function log(str: any){
-    console.log(str);
-}
-
 function start() {
     commander
         .version(conf.version)
@@ -119,6 +124,7 @@ function start() {
         .option('init', 'init hosts file', init)
         .option('status <domain>', 'check the status of the domains of keyword', status)
         .parse(process.argv);
+
     if (!process.argv.slice(2).length) {
         commander.outputHelp();
     }

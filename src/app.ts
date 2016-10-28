@@ -6,15 +6,11 @@ import * as Tools from './file';
 import {Host, disableHost, enableHost, Ip, addHost, getHosts, find} from './hosts';
 const conf = require('../package.json');
 
-function add(params: string[]): void {
-    if (params.length != 2) {
-        console.log('Your command params is no suit for action-add');
-        return commander.outputHelp();
-    }
-    let domain: string = params[0];
-    let ip: string = params[1];
-    addHost(domain, ip, true);
-    Tools.flush();
+function add(): void {
+    log(process.argv);
+    return;
+    //addHost(domain, ip, true);
+    //Tools.flush();
 }
 
 function enable(params: string[]): void {
@@ -108,15 +104,20 @@ Tools.readHostFile()
     .then(() => start())
     .catch(err => console.log(err));
 
+
+function log(str: any){
+    console.log(str);
+}
+
 function start() {
     commander
         .version(conf.version)
-        .option('-a --add <domain> <ip>', 'add a host', add)
-        .option('-e --enable <domain> <ip>', 'enable an ip for a domain', enable)
-        .option('-e --disable <domain>', 'disable all hosts of a domain', disable)
-        .option('-l --list', 'list all hosts', list)
-        .option('-i --init', 'init hosts file', init)
-        .option('-s --status <param>', 'check the status of a domain', status)
+        .option('add <domain> <ip>', 'add a host', add)
+        .option('enable <domain> <ip>', 'enable an ip for a domain', enable)
+        .option('disable <domain>', 'disable all hosts of a domain', disable)
+        .option('list', 'list all hosts', list)
+        .option('init', 'init hosts file', init)
+        .option('status <domain>', 'check the status of the domains of keyword', status)
         .parse(process.argv);
     if (!process.argv.slice(2).length) {
         commander.outputHelp();

@@ -136,11 +136,4 @@ function getHosts(): Host[] {
     return hosts;
 }
 
-function flush(): void {
-}
-
-function hehe() {
-    console.log('hehe');
-}
-
-export {Ip, Host, enableHost, disableHost, flush, addHost, getHosts, find, hehe};
+export {Ip, Host, enableHost, disableHost,  addHost, getHosts, find };

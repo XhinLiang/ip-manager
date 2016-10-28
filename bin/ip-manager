@@ -2,4 +2,5 @@
 
 'use strict';
 
+// this script is just use for require another script.
 require('../lib/app');

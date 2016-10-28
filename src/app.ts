@@ -1,7 +1,7 @@
 import * as commander from 'commander';
 import * as colors from 'colors';
 import * as fs from 'fs';
-import * as Tools from './tools';
+import * as Tools from './file';
 
 import {Host, disableHost, enableHost, Ip, addHost, getHosts, find} from './hosts';
 const conf = require('../package.json');

@@ -10,6 +10,10 @@ const FLAG_END = '#ip-manager-end';
 const FLAG_START = '#ip-manager-start';
 const LINE_SEPERATOR = isPosix() ? '\n' : '\r\n';
 
+/**
+ * 判断是否 POSIX 系统
+ * @return {boolean} 是否
+ */
 export function isPosix(): boolean {
     let platform: string = os.platform();
     if (platform == 'win32') {
@@ -18,6 +22,10 @@ export function isPosix(): boolean {
     return true;
 }
 
+/**
+ * hosts 文件的位置
+ * @return {string} 绝对位置
+ */
 export function getHostsFilePath(): string {
     if (isPosix()) {
         return '/etc/hosts';
@@ -25,13 +33,22 @@ export function getHostsFilePath(): string {
     return 'C:/Windows/System32/drivers/etc/hosts';
 }
 
-export function validateIp(str: string) {
+/**
+ * 判断给定的字符串是否是一个 IP 地址
+ * @param  {string} str 给定字符串
+ * @return {boolean} 判断结果
+ */
+export function validateIp(str: string): boolean {
     if (/^(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.(25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$/.test(str)) {
         return true;
     }
     return false;
 }
 
+/**
+ * 初始化 hosts
+ * @return {Promise<boolean>} promise
+ */
 export function init(): Promise<boolean> {
     let promise: Promise<boolean> = new Promise<boolean>((resolve: Function, reject: Function) => {
         fs.readFile(getHostsFilePath(), 'utf8', function(err: Error, data: string) {

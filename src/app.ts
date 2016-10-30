@@ -128,4 +128,14 @@ function start() {
     if (!process.argv.slice(2).length) {
         commander.outputHelp();
     }
+
+    if (process.argv.length > 2) {
+        let action: string = process.argv[2];
+        let actions: string[] = ['add', 'enable', 'disable', 'init', 'list', 'status'];
+        if (actions.indexOf(action) < 0) {
+            console.log('\nyour command: ' + action.red + ' is not enable yet, check again.');
+            commander.outputHelp();
+        }
+    }
+
 }

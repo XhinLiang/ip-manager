@@ -119,6 +119,12 @@ function disableHost(domainTemp: string): boolean {
     return true;
 }
 
+/**
+ * 查找 hosts
+ *
+ * @param  {string} domainTemp 查找的目标字符串
+ * @return {Host[]}            符合查找的 Host 的数组
+ */
 function find(domainTemp: string): Host[] {
     let domainArray: string[] = findDomain(domainTemp);
     let result: Host[] = [];
@@ -132,6 +138,11 @@ function find(domainTemp: string): Host[] {
     return result;
 }
 
+/**
+ * 获得所有的 hosts 信息
+ *
+ * @return {Host[]} [description]
+ */
 function getHosts(): Host[] {
     return hosts;
 }

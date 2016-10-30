@@ -13,6 +13,7 @@ sudo npm install ip-manager -g
 ```
 ip-manager init
 ```
+
 **ip-manager will not manage your old hosts**
 
 *If you want ip-manager manage your old hosts,
